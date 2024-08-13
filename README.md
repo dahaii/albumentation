@@ -12,11 +12,11 @@ C:/test <br>
 │   ├── ... <br>
 │   └── ... <br>
 └── val <br>
-<br>    ├── img1.jpg <br>
-    ├── img1.txt <br>
-    ├── img2.jpg <br>
-    ├── img2.txt <br>
-    ├── ... <br>
-    ├── ... <br>
-    └── ... <br>
+.   ├── img1.jpg <br>
+.   ├── img1.txt <br>
+.   ├── img2.jpg <br>
+.   ├── img2.txt <br>
+.   ├── ... <br>
+.   ├── ... <br>
+.   └── ... <br>
 Uygulama bu şekilde olan klasör yapılarına uygun çalışacaktır. <br>
