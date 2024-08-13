@@ -23,14 +23,14 @@ all_transforms = [
     A.RandomRain(p=0.3),
     A.RandomSunFlare(p=0.3),
     A.HueSaturationValue(hue_shift_limit=20, sat_shift_limit=30, val_shift_limit=20, p=0.3),
-    A.GaussianBlur(blur_limit=(3, 5), p=0.1),  # Güncellenmiş blur limitleri
-    A.MotionBlur(blur_limit=5, p=0.1),  # Güncellenmiş blur limitleri
+    A.GaussianBlur(blur_limit=(3, 5), p=0.1),
+    A.MotionBlur(blur_limit=5, p=0.1),
     A.ImageCompression(quality_lower=50, quality_upper=100, p=0.3)
 ]
 
 
 def get_random_transforms():
-    num_transforms = random.randint(8, 16)  # Rastgele olarak 8 ile 16 arasında bir sayı seçin
+    num_transforms = random.randint(7, 18)  # Rastgele olarak 7 ile 18 arasında bir sayı seçin
     return A.Compose(random.sample(all_transforms, num_transforms),
                      bbox_params=A.BboxParams(format='yolo', label_fields=['class_labels']))
 
@@ -78,7 +78,7 @@ def augment_images_and_labels(image_dir, aug_image_dir, label_dir, aug_label_dir
 
         if is_bbox_valid(bboxes):
             try:
-                # Rastgele augmentasyon işlemlerini seç
+                # İlk rastgele augmentasyon işlemlerini seç
                 transform = get_random_transforms()
 
                 # Görüntüyü augment et
@@ -97,6 +97,25 @@ def augment_images_and_labels(image_dir, aug_image_dir, label_dir, aug_label_dir
                 with open(aug_label_path, 'w') as f:
                     for bbox, class_label in zip(aug_bboxes, class_labels):
                         f.write(f"{class_label} " + " ".join([str(x) for x in bbox]) + "\n")
+
+                # İkinci augmentasyon işlemi (7-10 arası bir değer gelirse)
+                if 7 <= random.randint(7, 18) <= 10:
+                    transform = get_random_transforms()
+                    augmented = transform(image=aug_image, bboxes=aug_bboxes, class_labels=class_labels)
+                    aug_image = augmented["image"]
+                    aug_bboxes = augmented["bboxes"]
+
+                    # Tekrar augment edilen görüntü ve etiketleri kaydet
+                    aug_image_filename = f"aug2_{image_file}"
+                    aug_image_path = os.path.join(aug_image_dir, aug_image_filename)
+                    cv2.imwrite(aug_image_path, aug_image)
+
+                    aug_label_filename = f"aug2_{image_file.replace('.jpg', '.txt')}"
+                    aug_label_path = os.path.join(aug_label_dir, aug_label_filename)
+                    with open(aug_label_path, 'w') as f:
+                        for bbox, class_label in zip(aug_bboxes, class_labels):
+                            f.write(f"{class_label} " + " ".join([str(x) for x in bbox]) + "\n")
+
             except Exception as e:
                 print(f"Augmentation failed for {image_file}: {e}")
                 # Geçersiz bbox olan dosyaları doğrudan kopyala
