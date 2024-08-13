@@ -12,7 +12,7 @@ C:/test <br>
 │   ├── ... <br>
 │   └── ... <br>
 └── val <br>
-    ├── img1.jpg <br>
+<br>    ├── img1.jpg <br>
     ├── img1.txt <br>
     ├── img2.jpg <br>
     ├── img2.txt <br>
