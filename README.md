@@ -12,7 +12,7 @@ C:/test <br>
 │   ├── ... <br>
 │   └── ... <br>
 └── val <br>
-.   ├── img1.jpg <br>
+    ├── img1.jpg <br>
 .   ├── img1.txt <br>
 .   ├── img2.jpg <br>
 .   ├── img2.txt <br>
@@ -20,3 +20,16 @@ C:/test <br>
 .   ├── ... <br>
 .   └── ... <br>
 Uygulama bu şekilde olan klasör yapılarına uygun çalışacaktır. <br>
+```plaintext
+C:/test
+├── train
+│ ├── img1.jpg
+│ ├── img1.txt
+│ ├── img2.jpg
+│ ├── img2.txt
+│ ├── ...
+│ ├── ...
+│ └── ...
+└── val
+├── img1.jpg
+```
