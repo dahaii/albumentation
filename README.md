@@ -3,22 +3,22 @@ Bu uygulama ile modelimizi eğitirken ezberden uzaklaşıp daha iyi sonuçlar el
 <br>
 Benim kodları uyguladığım klasörün dosya biçimi şu şekildedir: <br>
 ```plaintext
-C:/test <br>
-├── train <br>
-│   ├── img1.jpg <br>
-│   ├── img1.txt <br>
-│   ├── img2.jpg <br>
-│   ├── img2.txt <br>
-│   ├── ... <br>
-│   ├── ... <br>
-│   └── ... <br>
-└── val <br>
-    ├── img1.jpg <br>
-    ├── img1.txt <br>
-    ├── img2.jpg <br>
-    ├── img2.txt <br>
-    ├── ... <br>
-    ├── ... <br>
-    └── ... <br>
+C:/test 
+├── train 
+│   ├── img1.jpg 
+│   ├── img1.txt 
+│   ├── img2.jpg 
+│   ├── img2.txt 
+│   ├── ... 
+│   ├── ... 
+│   └── ... 
+└── val 
+    ├── img1.jpg 
+    ├── img1.txt 
+    ├── img2.jpg 
+    ├── img2.txt 
+    ├── ... 
+    ├── ... 
+    └── ... 
 ```
 Uygulama bu şekilde olan klasör yapılarına uygun çalışacaktır. <br>
