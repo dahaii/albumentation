@@ -26,7 +26,7 @@ all_transforms = [
 ]
 
 # Klasör yolları
-base_dir = "C:/learningDataYOLOv5"
+base_dir = "C:/test"
 train_dir = os.path.join(base_dir, "train")
 val_dir = os.path.join(base_dir, "val")
 aug_dir = os.path.join(base_dir, "augDatas")
